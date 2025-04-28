@@ -1,4 +1,4 @@
-package practiceStuff;
+package practiceStuff.ArraysQ;
 
 import java.util.Scanner;
 
