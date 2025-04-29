@@ -8,6 +8,7 @@ public class introduction {
     
     Student mk = new Student();
 
+
     // mk.roll =  12;
     // mk.name =  "sinchin";
     // mk.marks =  12.3f;
@@ -19,10 +20,30 @@ public class introduction {
     mk.changeName("ff player");
     mk.greeting();
 
-    Student random = new Student(mk);
-    System.out.println(random.name);
+
+    
+
+    // Student random = new Student(mk);
+    // System.out.println(random.name);
+    
+    
+    Student one = new Student();
+
+    Student two = one;
+
+    one.name = "jj";
+
+    System.out.println(two.name);
+
+
+    
 
     }
+
+    
+
+
+
 }
 
 
@@ -37,6 +58,8 @@ class Student {
     String name;
     float marks;
 
+    
+
 
 
     void greeting(){
@@ -49,10 +72,16 @@ class Student {
 
   //constructor 
 
-  Student(){
-  this.roll = 13;
-  this.name = "sinchin";
-  this.marks = 34.f;
+  Student () {
+//   this.roll = 13;
+//   this.name = "sinchin";
+//   this.marks = 34.f;
+
+// this is how you call a constructor from a another constructor
+
+
+this(0, "Default Name", 0.0f); 
+
   }
 
   Student(Student other){
@@ -60,5 +89,12 @@ class Student {
      this.name = other.name;
      this.marks = other.marks;
   }
+
+  Student(int roll, String name, float marks) {
+    this.roll = roll;
+    this.name = name;
+    this.marks = marks;
+}
+
 
 }
