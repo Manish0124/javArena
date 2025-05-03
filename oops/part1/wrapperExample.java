@@ -21,7 +21,8 @@ public class wrapperExample {
        rohan.name = "other name";
 
         
-       A obj;
+       A obj = new A("mohan");
+       System.out.println(obj);
        //when a non primitive  is final , you cannot reassign it 
     //    rohan = new A("new object");
 
