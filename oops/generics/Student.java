@@ -10,3 +10,4 @@ public class Student {
         this.marks = marks;
     }
 }
+    
