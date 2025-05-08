@@ -10,6 +10,7 @@ public class first {
 
         list.add(34);
         list.add(314);
+        
 
         System.out.println(list);
     }
