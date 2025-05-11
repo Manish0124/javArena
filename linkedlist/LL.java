@@ -81,6 +81,18 @@ public class LL {
         return val;
 
     }
+    
+    public Node find(int value){
+        Node node = head;
+        if (node!=null) {
+            if (node.value ==  value) {
+                return node;
+            }
+            node = node.next;
+        }
+        return null;
+    }
+
 
     public Node get(int index) {
         Node node = head;
@@ -89,6 +101,30 @@ public class LL {
         }
 
         return node;
+    }
+
+    public int delete(int index){
+            if (index < 0 || index >= size) {
+        throw new IndexOutOfBoundsException("Index out of bounds");
+    }
+        if (index == 0) {
+            return deleteFirst();
+        }
+        if (index == size -1) {
+            return deleteLast();
+        }
+
+        Node prev = get(index-1);
+         if (prev.next == null) {
+        throw new IllegalStateException("Invalid state: next node is null");
+    }
+        int val = prev.next.value;
+
+        prev.next = prev.next.next;
+
+        size--;
+
+        return val;
     }
 
     public void display() {
