@@ -25,15 +25,26 @@ public class Main {
         // list.display();
         // list.find(100);
 
-        DLL list = new DLL();
+        //double linked is here
 
-        list.insertFirst(12);
-        list.insertFirst(13);
-        list.insertFirst(14);
-        list.insertFirst(15);
-        list.insetLast(99);
+        // DLL list = new DLL();
+
+        // list.insertFirst(12);
+        // list.insertFirst(13);
+        // list.insertFirst(14);
+        // list.insertFirst(15);
+        // list.insetLast(99);
         
+        // list.insert(14, 65);
+        // list.display();
+
+        CLL list = new CLL();
+        list.insert(12);
+        list.insert(13);
+        list.insert(14);
+        list.insert(19);
         list.display();
-        
+        list.delete(13);
+        list.display();
     }
 }
