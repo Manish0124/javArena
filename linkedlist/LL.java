@@ -160,7 +160,7 @@ public class LL {
 
     }
 
-    private class Node {
+    private  class Node {
         private int value;
         private Node next;
 
@@ -174,6 +174,40 @@ public class LL {
         }
 
     }
+
+   //merge 
+
+   public static LL merge(LL first , LL second){
+        
+      Node f = first.head;
+      Node s = second.head;
+
+      LL ans = new LL();
+
+      while (f!= null && s!= null) {
+        if (f.value<s.value) {
+            ans.insertLast(f.value);
+            f = f.next;
+        }
+        else{
+            ans.insertLast(s.value);
+            s = s.next;
+        }
+      }
+
+      while (f!=null) {
+        ans.insertLast(f.value);
+        f = f.next;
+      }
+      while (s!=null) {
+        ans.insertLast((s.value));
+        s = s.next;
+      }
+
+      return ans;
+       
+   }
+
 
    //questions
 
@@ -193,20 +227,68 @@ public class LL {
        tail.next = null;
    }
 
+   //is cycle present or not 
+
+   public boolean hasCycle(Node head){
+        Node fast = head;
+        Node slow = head;
+
+        while (fast!=null && fast.next!=null) {
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                return true;
+            }
+        }
+
+        return false;
+   }
+
 
    public static void main(String[] args) {
       
-    LL list = new LL();
-    list.insertLast(12);
-    list.insertLast(12);
-    list.insertLast(13);
-    list.insertLast(14);
-    list.insertLast(14);
-    list.insertLast(14);
-    list.insertLast(15);
-    list.display();
-    list.dublicates();
-    list.display();
+    // LL list = new LL();
+    // list.insertLast(12);
+    // list.insertLast(12);
+    // list.insertLast(13);
+    // list.insertLast(14);
+    // list.insertLast(14);
+    // list.insertLast(14);
+    // list.insertLast(15);
+    // list.display();
+    // list.dublicates();
+    // list.display();
+   
+    // LL first = new LL();
+    // LL second = new LL();
+    
+    // first.insertLast(1);
+    // first.insertLast(3);
+    // first.insertLast(5);
+
+    // second.insertLast(1);
+    // second.insertLast(2);
+    // second.insertLast(9);
+    // second.insertLast(14);
+
+    // LL ans = LL.merge(first, second);
+
+    // ans.display();
+ 
+    //to run the cycle is present or not you have to use the static in Node 
+//    Node node1 = new Node(1);
+//         Node node2 = new Node(2);
+//         Node node3 = new Node(3);
+//         Node node4 = new Node(4);
+
+//           node1.next = node2;
+//         node2.next = node3;
+//         node3.next = node4;
+//         node4.next = node2; 
+   
+//         LL list = new LL();
+//         boolean result = list.hasCycle(node1);
+//         System.out.println(result);
 }
 
 
