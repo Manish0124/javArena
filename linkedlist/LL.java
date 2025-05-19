@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.List;
+
 public class LL {
 
     private Node head;
@@ -66,6 +68,26 @@ public class LL {
         size--;
         return val;
     }
+
+     
+    // using recursion in linked list 
+
+    public void insertRec(int val, int index){
+       head = insertRec(val, index, head);
+    }
+
+    private Node insertRec(int val, int index  , Node node){
+         if (index == 0) {
+            Node temp = new Node(val , node);
+            size++;
+            return temp;
+         }
+
+         node.next = insertRec(val, index -1, node.next);
+         return node;
+    }
+ 
+
 
     public int deleteLast() {
 
@@ -152,5 +174,40 @@ public class LL {
         }
 
     }
+
+   //questions
+
+   public void dublicates(){
+       Node node = head;
+       while (node.next!=null) {
+         if (node.value == node.next.value) {
+            node.next = node.next.next;
+            size--;
+         }
+         else{
+            node = node.next;
+         }
+       }
+
+       tail = node;
+       tail.next = null;
+   }
+
+
+   public static void main(String[] args) {
+      
+    LL list = new LL();
+    list.insertLast(12);
+    list.insertLast(12);
+    list.insertLast(13);
+    list.insertLast(14);
+    list.insertLast(14);
+    list.insertLast(14);
+    list.insertLast(15);
+    list.display();
+    list.dublicates();
+    list.display();
+}
+
 
 }
