@@ -160,7 +160,7 @@ public class LL {
 
     }
 
-    private  class Node {
+    private static class Node {
         private int value;
         private Node next;
 
@@ -244,6 +244,59 @@ public class LL {
         return false;
    }
 
+   //find the length of the cycle
+
+   public int lengthCycle(Node head){
+    Node fast = head;
+    Node slow = head;
+
+    while (fast!=null && fast.next!=null) {
+        fast = fast.next.next;
+        slow = slow.next;
+        if (fast == slow) {
+            //  logic to find the lentgh
+            Node temp = slow;
+            int length = 0;
+
+            do{
+                temp = temp.next;
+                length++;
+            }while(temp !=slow);
+               return length;
+           
+        }
+    }
+
+    return 0;
+   }
+
+   //is happynumber or not 
+
+   public boolean isHappy(int n){
+      int slow = n;
+      int fast = n;
+
+      do{
+         slow = findSquare(slow);
+         fast = findSquare(findSquare(fast));
+      } while(slow!=fast);
+
+      if (slow == 1) {
+         return true;
+      }
+      return false;
+   }
+
+   private int findSquare(int number){
+        int ans = 0;
+        while (number > 0) {
+            int rem = number % 10;
+            ans+= rem*rem;
+            ans/=10;
+        }
+        return ans;
+   }
+
 
    public static void main(String[] args) {
       
@@ -276,20 +329,24 @@ public class LL {
     // ans.display();
  
     //to run the cycle is present or not you have to use the static in Node 
-//    Node node1 = new Node(1);
-//         Node node2 = new Node(2);
-//         Node node3 = new Node(3);
-//         Node node4 = new Node(4);
+   Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
 
-//           node1.next = node2;
-//         node2.next = node3;
-//         node3.next = node4;
-//         node4.next = node2; 
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node2; 
    
-//         LL list = new LL();
-//         boolean result = list.hasCycle(node1);
-//         System.out.println(result);
-}
+        LL list = new LL();
+
+        // boolean result = list.hasCycle(node1);
+        // System.out.println(result);
+
+        int result = list.lengthCycle(node1);
+        System.out.println(result);
+    }
 
 
 }
