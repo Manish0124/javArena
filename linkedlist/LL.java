@@ -298,6 +298,57 @@ public class LL {
    }
 
 
+   //middle node in ll
+   public Node middleNode(Node head){
+    Node s = head;
+    Node f = head;
+
+    while (f!=null && f.next!=null) {
+        s = s.next;
+        f = s.next.next;
+    }
+    return s ;
+   }
+
+   //recursion reverse 
+
+   private void reverse(Node node){
+       if (node == tail) {
+          head = tail; 
+          return;
+       }
+
+       reverse(node.next);
+       tail.next = node;
+       tail = node;
+       tail.next = null;
+   }
+
+
+   //in place reversal of linked list
+
+   public void reverse(){
+    if (size<2) {
+        return;
+    }
+
+    Node prev = null;
+    Node preset = head;
+    Node next = preset.next;
+     
+    while (preset != null) {
+        preset.next = prev;
+        prev = preset;
+        preset = next;
+
+        if (next!=null) {
+            next = next.next;
+        }
+    }
+    head = prev;
+
+   }
+
    public static void main(String[] args) {
       
     // LL list = new LL();
