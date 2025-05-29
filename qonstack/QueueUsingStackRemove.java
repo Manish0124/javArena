@@ -40,4 +40,6 @@ public class QueueUsingStackRemove {
     public boolean isEmpty(){
         return first.isEmpty();
     }
+
+    
 }
